@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hisobot-task/static/css/main.2883eaac.css",
+    "main.js": "/hisobot-task/static/js/main.70bfd149.js",
+    "static/js/787.e008b91c.chunk.js": "/hisobot-task/static/js/787.e008b91c.chunk.js",
+    "index.html": "/hisobot-task/index.html",
+    "main.2883eaac.css.map": "/hisobot-task/static/css/main.2883eaac.css.map",
+    "main.70bfd149.js.map": "/hisobot-task/static/js/main.70bfd149.js.map",
+    "787.e008b91c.chunk.js.map": "/hisobot-task/static/js/787.e008b91c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2883eaac.css",
+    "static/js/main.70bfd149.js"
+  ]
+}
