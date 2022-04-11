@@ -1,0 +1,97 @@
+label{
+    cursor: pointer;
+}
+
+.modal-wrapper {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.modal-wrapper--show{
+    display: block;
+}
+
+.modal-window {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* padding: 16px; */
+    width: 576px;
+    height: 482px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.modal-window__input{
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modal-window__search-input {
+    margin: 16px;
+    width: 536px;
+    height: 36px;
+    border: 1px solid #E5E9EB;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    
+}
+
+.modal-window__search-input::placeholder {
+    color: #9AA6AC;
+}
+
+.modal-window__content{
+    overflow-y: auto;
+    max-height: 340px;
+}
+
+.modal-window__checkbox-input {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.modal-window__checkbox-div{
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+    /* border-top: 1px solid #9AA6AC;
+    border-bottom: 1px solid #9AA6AC; */
+}
+
+.modal-window__buttons{
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+
+.cancel-button, .save-button{
+    width: 160px;
+    height: 40px;
+    background: #C7C7C7;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.save-button{
+    background: #4094F7;
+    margin-left: 16px;
+}
