@@ -54,7 +54,21 @@ const MTable = ({}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [users, setUsers] = useState([]);
 
-  const getUsers = () => {
+  // const getUsers = () => {
+    // axios
+    //   .get(
+    //     `https://6252ef5e7f7fa1b1ddeb8f61.mockapi.io/api/v2/people?page=${currentPage}&limit=10`
+    //   )
+    //   .then((res) => {
+    //     setUsers(res.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  // };
+
+  useEffect(() => {
+    // getUsers();
     axios
       .get(
         `https://6252ef5e7f7fa1b1ddeb8f61.mockapi.io/api/v2/people?page=${currentPage}&limit=10`
@@ -65,11 +79,7 @@ const MTable = ({}) => {
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  useEffect(() => {
-    getUsers();
-  });
+  }, [currentPage]);
 
   // const data = [
   //   {

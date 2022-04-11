@@ -4,54 +4,37 @@ import FormInput from "../FormInput";
 import axios from "axios";
 
 const Modal = ({ showModal, handleClick, options }) => {
-  // const [checkBox, setCheckBox] = useState([]);
-
   const uuid = {
-    uuid: []
+    uuid: [],
   };
 
   const resetCheckbox = () => {
-    
-  }
-
-  // const getOptions = () => {
-  //   axios
-  //     .get(
-  //       `https://6252ef5e7f7fa1b1ddeb8f61.mockapi.io/api/v2/options/23d486fe-bc0d-4367-848d-1cc8cf81bc75`
-  //     )
-  //     .then((res) => {
-  //       setCheckBox(res.data.options);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   getOptions();
-  // }, []);
-
-  const handleCheckboxChange = (e) => {
-    // const { name, checked } = e.target;
-    // const tempUser = checkBox?.map((check) =>
-    //   check.name === name ? { ...check, isChecked: checked } : check
-    // );
-
-    // setCheckBox(tempUser);
-
-    console.log();
+    uuid.uuid = [];
+    // setDefaultChecked(false);
   };
-
-  // const handleSubmit = () => {
-  // }
 
   return (
     <div className={`modal-wrapper ${showModal ? "modal-wrapper--show" : ""}`}>
       <div className="modal-window">
-        <form onSubmit={(e) => {
-              e.preventDefault();
-              axios.post('https://6252ef5e7f7fa1b1ddeb8f61.mockapi.io/api/v2/postIDs', uuid)
-        }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (uuid.uuid.length) {
+              axios
+                .post(
+                  "https://6252ef5e7f7fa1b1ddeb8f61.mockapi.io/api/v2/postIDs",
+                  uuid
+                )
+                .catch((err) => console.log(err))
+                .finally(() => {
+                  // setDefaultChecked(false);
+                  console.log("sent");
+                });
+            } else {
+              console.log('err');
+            }
+          }}
+        >
           <div className="modal-window__input">
             <FormInput
               type="text"
@@ -60,19 +43,22 @@ const Modal = ({ showModal, handleClick, options }) => {
             />
           </div>
           <div className="modal-window__content">
-            {options?.map((option) => (
+            {options?.map((option, index) => (
               <FormInput
                 key={option.id}
                 type="checkbox"
                 name={option.id}
                 endLabel={option.name}
-
-                // checked={check?.isChecked || false}
+                // defaultChecked={defaultChecked}
                 handleChange={() => {
-                  // (IDArray.push(check?.id))
-                  // IDArray.contains(option?.id) ? IDArray.push(option?.id) : null
-                  if(!(uuid.uuid.includes(option?.id))){
-                    uuid.uuid.push(option?.id)
+                  if (!uuid.uuid.includes(option?.id)) {
+                    uuid.uuid.push(option?.id);
+                  } else if (uuid.uuid.includes(option?.id)) {
+                    const idIndex = uuid.uuid.findIndex(
+                      (index) => index === option?.id
+                    );
+                    console.log(idIndex);
+                    uuid.uuid.splice(idIndex, 1);
                   }
                   console.log(uuid);
                 }}
@@ -120,7 +106,10 @@ const Modal = ({ showModal, handleClick, options }) => {
             <button
               className="cancel-button"
               type="button"
-              onClick={() => handleClick()}
+              onClick={() => {
+                handleClick();
+                resetCheckbox();
+              }}
             >
               Bekor qilish
             </button>

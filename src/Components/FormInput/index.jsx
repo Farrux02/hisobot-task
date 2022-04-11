@@ -13,6 +13,7 @@ const FormInput = ({
   divClass,
   key,
   handleClick,
+  defaultChecked,
   ...props
 }) => {
   return (
@@ -26,6 +27,7 @@ const FormInput = ({
         placeholder={placeholder}
         required={required}
         onClick={handleClick}
+        defaultChecked={defaultChecked}
         // onChange={() => handleChange()}
         onChange={handleChange}
         {...props}
